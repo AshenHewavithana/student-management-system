@@ -22,8 +22,6 @@ export default function StudentDetails() {
 
     const [search, setSearch] = useState('');
 
-    console.log(search)
-
   return (
     <div>
         <h1>Student Details</h1>
@@ -50,9 +48,9 @@ export default function StudentDetails() {
             <tbody>
                 {
                     students.filter((student) => {
-                        return search === '' ? student : student.id.includes(search)
+                        return search.toLowerCase() === '' ? student : student.firstname.toLowerCase().includes(search)
                     })
-                    .map((student, index) => (
+                    .map((student) => (
                     <tr key={student.id}>
                     <td>{student.id}</td>
                     <td>{student.firstname}</td>
@@ -62,7 +60,7 @@ export default function StudentDetails() {
                     <td>{student.degree}</td>
                     <td>{student.courses}</td>
                     <td>
-                    <Link to={`/viewuser/${student.id}`} className='btn btn-outline-primary mx-2'>Course History</Link>
+                    <Link to={`/viewstudent/${student.id}`} className='btn btn-outline-primary mx-2'>Course History</Link>
                     {/* <Link to= '...' className='btn btn-outline-primary mx-2'>View</Link> */}
                     <Link to={`/editstudent/${student.id}`} className='btn btn-outline-success mx-2'>Edit</Link>
                     <button className='btn btn-danger mx-2' onClick={() => deleteStudent(student.id)}>Delete</button>
