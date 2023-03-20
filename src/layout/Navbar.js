@@ -3,16 +3,24 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <div>
-        <nav className="navbar navvar-nav navbar-expand-lg navbar-light bg-warning">
-            <div className="container">
-            <a class="navbar-brand" href="/menu">
-                <img src="./images/kdu-logo-image.png" width="30" height="30" class="d-inline-block align-top" alt=""/>
-                Student Management System
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+        <div className='container'>
+            <a class="navbar-brand text-light" href="/menu">
+                <img src="./images/kdu-logo-image.png" width="40" height="30" className="d-inline-block align-top" alt="" />
             </a>
-                <Link className='btn btn-primary' to="/menu">Main Menu</Link>
-            </div>
-        </nav>
-    </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-light" href="#">Student Mangement System <span class="sr-only"></span></a>
+                </li>
+            </ul>
+            <Link to='/menu' className ="btn btn-outline-light my-2 my-lg-0">Menu</Link>
+        </div>
+        </div>
+  
+    </nav>          
   )
 }
+
+               

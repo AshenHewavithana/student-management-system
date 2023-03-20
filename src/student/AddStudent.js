@@ -34,10 +34,10 @@ export default function AddStudent() {
             <div className='col-md-6 offset-md-3 order rounded p-3 mt-2 shadow'>
                 <h2 className='text-center m-4'>Register Student</h2>
                 <form onSubmit={(event) => onSubmit(event)}>
-                    <div className='mb-3'>
+                    {/* <div className='mb-3'>
                         <label htmlFor='id' className='form-label'>Student ID</label>
                         <input type={'text'} className='form-control' placeholder='Enter Student ID' name='id' value={id} onChange={(event)=>onInputChange(event)}/>
-                    </div>
+                    </div> */}
                     <div className='mb-3'>
                         <label htmlFor='firstname' className='form-label'>First Name</label>
                         <input type={'text'} className='form-control' placeholder='Enter First Name' name='firstname' value={firstname} onChange={(event)=>onInputChange(event)}/>

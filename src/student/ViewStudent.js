@@ -11,6 +11,7 @@ export default function ViewStudent() {
         lastname:'',
         address:'',
         dob:'',
+        regNo:'',
         degree:'',
         courses:''
     })
@@ -31,7 +32,7 @@ export default function ViewStudent() {
 
             <div className='card'>
                 <div className='card-header'>
-                    Details of Student Id : {student.id}
+                    Details of Student Registration Number : {student.regno}
                     <ul className='list-group list-group-flush'>
                         <li className='list-group-item'>
                             <b>First Name : </b>
@@ -48,6 +49,10 @@ export default function ViewStudent() {
                         <li className='list-group-item'>
                             <b>DOB : </b>
                             {student.dob}
+                        </li>
+                        <li className='list-group-item'>
+                            <b>Student Reg Number : </b>
+                            {student.regNo}
                         </li>
                         <li className='list-group-item'>
                             <b>Degree : </b>
