@@ -18,10 +18,12 @@ export default function AddStudent() {
 
     const{id, firstname, lastname, address, dob, degree, courses} = student
 
+    // Function that monitors Input Change of a field.
     const onInputChange = (event) => {
         setStudent({...student,[event.target.name]:event.target.value});
     }
 
+    // Submit function, that sends data to the database.
     const onSubmit = async (event) => {
         event.preventDefault();
         await axios.post("http://localhost:8080/student",student);
@@ -33,6 +35,7 @@ export default function AddStudent() {
         <div className='row'>
             <div className='col-md-6 offset-md-3 order rounded p-3 mt-2 shadow'>
                 <h2 className='text-center m-4'>Register Student</h2>
+                {/* Student Registration Form */}
                 <form onSubmit={(event) => onSubmit(event)}>
                     {/* <div className='mb-3'>
                         <label htmlFor='id' className='form-label'>Student ID</label>

@@ -10,11 +10,13 @@ export default function StudentDetails() {
         loadStudents();
     },[]);
 
+    // function to load students from the database
     const loadStudents = async() => {
         const result=await axios.get("http://localhost:8080/students")
         setStudents(result.data);
     }
 
+    // function to delete a student from the system
     const deleteStudent=async(id)=>{
         await axios.delete(`http://localhost:8080/student/${id}`)
         loadStudents();
@@ -32,6 +34,7 @@ export default function StudentDetails() {
         </div>
         <div className='container'>
         <div className='py-4'>
+        {/* Table that displays the results */}
         <table className="table border shadow">
             <thead>
                 <tr>
@@ -47,10 +50,12 @@ export default function StudentDetails() {
             </thead>
             <tbody>
                 {
+                    // Search Filter for students.
                     students.filter((student) => {
                         return search.toLowerCase() === '' ? student : student.firstname.toLowerCase().includes(search)
                     })
                     .map((student) => (
+                    // Calls student details for the table
                     <tr key={student.id}>
                     <td>{student.id}</td>
                     <td>{student.firstname}</td>
@@ -61,7 +66,6 @@ export default function StudentDetails() {
                     <td>{student.courses}</td>
                     <td>
                     <Link to={`/viewstudent/${student.id}`} className='btn btn-outline-primary mx-2'>Course History</Link>
-                    {/* <Link to= '...' className='btn btn-outline-primary mx-2'>View</Link> */}
                     <Link to={`/editstudent/${student.id}`} className='btn btn-outline-success mx-2'>Edit</Link>
                     <button className='btn btn-danger mx-2' onClick={() => deleteStudent(student.id)}>Delete</button>
                     </td>
